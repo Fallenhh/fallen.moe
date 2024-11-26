@@ -22,6 +22,35 @@ export function getAllPostSlugs(): string[] {
     .filter(filename => filename.endsWith('.md'))
     .map(filename => filename.replace(/\.md$/, ''))
 }
+export function getAllPosts(): Array<{ slug: string; title: string; date: string }> {
+  const postsDirectory = path.join(process.cwd(), 'posts')
+  const slugs = getAllPostSlugs()
+  
+  return slugs
+    .map(slug => {
+      try {
+        const fullPath = path.join(postsDirectory, `${slug}.md`)
+        const fileContents = fs.readFileSync(fullPath, 'utf8')
+        const { data } = matter(fileContents)
+        
+        return {
+          slug,
+          title: data.title,
+          date: data.date,
+        }
+      } catch (error) {
+        console.error(`Error loading post ${slug}:`, error)
+        return null
+      }
+    })
+    .filter((post): post is { slug: string; title: string; date: string } => post !== null)
+    // Sort by date in descending order (newest first)
+    .sort((a, b) => {
+      if (!a.date || !b.date) return 0
+      return new Date(b.date).getTime() - new Date(a.date).getTime()
+    })
+}
+
 
 export async function getPostBySlug(slug: string): Promise<Post | null> {
   try {
