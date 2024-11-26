@@ -16,18 +16,20 @@ if (!post) {
 
 return (
   <article className="prose lg:prose-xl mx-auto px-4 [&_.katex]:max-w-full [&_.katex-display]:overflow-x-auto">
-    <h1>{post.title}</h1>
-    {post.date && (
-      <div className="text-gray-600 mb-4">
-        <time dateTime={post.date}>
-          {new Date(post.date).toLocaleDateString('en-US', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-          })}
-        </time>
-      </div>
-    )}
+    <div className="text-center mb-12">
+      <h3 className="!mb-4">{post.title}</h3>
+      {post.date && (
+        <div className="text-gray-600">
+          <time dateTime={post.date}>
+            {new Date(post.date).toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric'
+            })}
+          </time>
+        </div>
+      )}
+    </div>
     <div 
       className="mt-8"
       dangerouslySetInnerHTML={{ __html: post.content }} 
