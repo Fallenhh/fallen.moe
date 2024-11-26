@@ -9,6 +9,10 @@ const config: Config = {
   ],
   theme: {
   	extend: {
+  	  fontFamily: {
+  	    serif: ['var(--font-noto-serif-sc)'],
+  	    mono: ['var(--font-ubuntu-mono)'],
+  	  },
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',

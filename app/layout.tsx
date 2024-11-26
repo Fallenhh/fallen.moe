@@ -1,17 +1,17 @@
-import localFont from "next/font/local";
+import { Noto_Serif_SC, Ubuntu_Mono } from 'next/font/google';
 import "./globals.css";
 import "katex/dist/katex.min.css";
 import Header from '@/app/components/Header';
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
+const notoSerifSC = Noto_Serif_SC({
+  weight: ['400', '700'],
+  variable: '--font-noto-serif-sc',
 });
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+
+const ubuntuMono = Ubuntu_Mono({
+  weight: ['400', '700'],
+  subsets: ['latin'],
+  variable: '--font-ubuntu-mono',
 });
 
 export default function RootLayout({
@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${notoSerifSC.variable} ${ubuntuMono.variable} font-serif antialiased`}
       >
         <Header />
         <main className="pt-8">
