@@ -5,6 +5,7 @@ import Header from '@/app/components/Header';
 
 const notoSerifSC = Noto_Serif_SC({
   weight: ['400', '700'],
+  subsets: ['latin'],
   variable: '--font-noto-serif-sc',
 });
 
