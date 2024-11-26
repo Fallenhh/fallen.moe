@@ -4,6 +4,10 @@ import path from 'path'
 import { remark } from 'remark'
 import html from 'remark-html'
 import matter from 'gray-matter'
+import remarkMath from 'remark-math'
+import remarkRehype from 'remark-rehype'
+import rehypeKatex from 'rehype-katex'
+import rehypeStringify from 'rehype-stringify'
 
 export type Post = {
   slug: string
@@ -65,9 +69,17 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
     // Read and parse the post file
     const fileContents = fs.readFileSync(fullPath, 'utf8')
     const { data, content } = matter(fileContents)
-    // Convert markdown to HTML using remark
+    // Convert markdown to HTML using remark with LaTeX support
     const processedContent = await remark()
-      .use(html)
+      .use(remarkMath)
+      .use(remarkRehype)
+      .use(rehypeKatex, {
+        strict: false,
+        output: 'html',
+        throwOnError: false,
+        displayMode: false,
+      })
+      .use(rehypeStringify)
       .process(content)
     const contentHtml = processedContent.toString()
     

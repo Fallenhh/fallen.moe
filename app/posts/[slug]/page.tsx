@@ -15,7 +15,7 @@ if (!post) {
 }
 
 return (
-  <article className="prose lg:prose-xl mx-auto px-4">
+  <article className="prose lg:prose-xl mx-auto px-4 [&_.katex]:max-w-full [&_.katex-display]:overflow-x-auto">
     <h1>{post.title}</h1>
     {post.date && (
       <div className="text-gray-600 mb-4">
