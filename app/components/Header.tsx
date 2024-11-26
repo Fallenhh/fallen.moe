@@ -6,7 +6,7 @@ export default function Header() {
       <nav className="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
         <Link 
           href="/" 
-          className="text-lg font-medium px-3 py-2 rounded-md hover:bg-gray-100 transition-all inline-block"
+          className="text-xl font-semibold px-3 py-2 rounded-md hover:bg-gray-100 transition-all inline-block"
         >
           Atelier Fallenhh
         </Link>
@@ -14,7 +14,7 @@ export default function Header() {
           <li>
             <Link 
               href="/archive" 
-              className="text-lg px-3 py-2 rounded-md hover:bg-gray-100 transition-all inline-block"
+              className="text-xl font-medium px-3 py-2 rounded-md hover:bg-gray-100 transition-all inline-block"
             >
               Archive
             </Link>
@@ -22,7 +22,7 @@ export default function Header() {
           <li>
             <Link 
               href="/about" 
-              className="text-lg px-3 py-2 rounded-md hover:bg-gray-100 transition-all inline-block"
+              className="text-xl font-medium px-3 py-2 rounded-md hover:bg-gray-100 transition-all inline-block"
             >
               About
             </Link>

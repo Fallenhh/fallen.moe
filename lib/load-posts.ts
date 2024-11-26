@@ -1,4 +1,3 @@
-
 import fs from 'fs'
 import path from 'path'
 import { remark } from 'remark'
@@ -7,6 +6,8 @@ import remarkMath from 'remark-math'
 import remarkGfm from 'remark-gfm'
 import remarkRehype from 'remark-rehype'
 import rehypeKatex from 'rehype-katex'
+import rehypeHighlight from 'rehype-highlight'
+import rehypeHighlightCodeLines from 'rehype-highlight-code-lines'
 import rehypeStringify from 'rehype-stringify'
 
 export type Post = {
@@ -79,6 +80,11 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
       .use(rehypeKatex, {
         throwOnError: false,
         trust: true
+      })
+      .use(rehypeHighlight)
+      .use(rehypeHighlightCodeLines, {
+        showLineNumbers: true,
+        lineContainerTagName: 'div'
       })
       .use(rehypeStringify, { allowDangerousHtml: true })
       .process(content)

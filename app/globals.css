@@ -76,3 +76,103 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+/* Code highlighting styles */
+
+.code-container {
+  @apply relative;
+}
+
+pre {
+  @apply my-2 rounded-lg overflow-hidden;
+}
+
+pre code {
+  @apply block bg-gray-900 text-gray-100;
+  font-family: var(--font-ubuntu-mono);
+}
+
+.code-line {
+  @apply block pl-12 pr-4 relative;
+  line-height: 1.5rem;
+}
+
+.numbered-code-line::before {
+  content: attr(data-line-number);
+  @apply absolute left-0 top-0 w-8 text-right pr-2 text-gray-500 select-none text-sm bg-gray-800/50 border-r border-gray-700;
+}
+
+.code-line.highlighted {
+  @apply bg-blue-500/20;
+}
+
+
+/* Line numbers container */
+.hljs-line-numbers {
+  @apply absolute left-0 top-0 bottom-0 py-2 px-2 text-right select-none bg-gray-800/50 text-gray-500 border-r border-gray-700;
+  min-width: 3rem;
+}
+
+/* Individual line number */
+.hljs-line-number {
+  @apply block text-sm leading-relaxed;
+}
+
+/* Line of code */
+.hljs-line {
+  @apply pl-12 pr-4 leading-relaxed block;
+}
+
+/* Syntax highlighting colors */
+.hljs-comment,
+.hljs-quote {
+  @apply text-gray-500 italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-addition {
+  @apply text-blue-400;
+}
+
+.hljs-string,
+.hljs-template-string,
+.hljs-regexp {
+  @apply text-green-400;
+}
+
+.hljs-number,
+.hljs-built_in,
+.hljs-literal {
+  @apply text-orange-300;
+}
+
+.hljs-type,
+.hljs-class {
+  @apply text-yellow-300;
+}
+
+.hljs-function {
+  @apply text-purple-400;
+}
+
+.hljs-title {
+  @apply text-blue-300;
+}
+
+.hljs-attr,
+.hljs-variable,
+.hljs-template-variable {
+  @apply text-red-400;
+}
+
+/* Highlighted line */
+.hljs-line.highlighted {
+  @apply bg-blue-500/20 -mx-4 px-4;
+}
+
+/* Optional: Add a marker for highlighted lines */
+.hljs-line.highlighted::before {
+  content: "";
+  @apply absolute left-0 w-1 h-full bg-blue-400;
+}

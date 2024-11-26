@@ -1,4 +1,4 @@
-import { FaGithub, FaTwitter, FaTelegram, FaEnvelope } from 'react-icons/fa'
+import { FaGithub, FaXTwitter, FaTelegram, FaEnvelope } from 'react-icons/fa6'
 import Link from 'next/link'
 
 export default function AboutPage() {
@@ -9,9 +9,9 @@ export default function AboutPage() {
       icon: <FaGithub className="w-6 h-6" />,
     },
     {
-      name: 'Twitter',
-      url: 'https://twitter.com/Fallenhh2',
-      icon: <FaTwitter className="w-6 h-6" />,
+      name: 'X (Twitter)',
+      url: 'https://x.com/Fallenhh2',
+      icon: <FaXTwitter className="w-6 h-6" />,
     },
     {
       name: 'Telegram',

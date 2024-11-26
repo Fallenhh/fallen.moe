@@ -6,9 +6,25 @@ const posts = getAllPosts()
 
 export default function Home() {
   return (
-    <div className="min-h-screen px-4 py-8 md:p-20">
-      <main className="container mx-auto max-w-4xl">
-        <h4 className="text-2xl font-extrabold mb-8 bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">My Recipes</h4>
+    <div className="min-h-screen px-4 py-8">
+      <main className="container mx-auto max-w-4xl md:px-4">
+        <h1 className="text-3xl font-bold mb-8 text-gray-800 flex items-center gap-2">
+          My Recipes
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            width="24" 
+            height="24" 
+            viewBox="0 0 24 24" 
+            fill="none" 
+            stroke="currentColor" 
+            strokeWidth="2" 
+            strokeLinecap="round" 
+            strokeLinejoin="round" 
+            className="text-gray-600"
+          >
+            <path d="M12 3v18M19 14l-7 7-7-7"/>
+          </svg>
+        </h1>
         <div className="grid grid-cols-1 gap-6">
           {posts.map((post) => (
             <article 

@@ -1,21 +1,9 @@
 ---
-title: Code test 
+title: Scripts Collections 
 date: 2024-11-25
 ---
 
-
-```js
-
-const months = ['March', 'Jan', 'Feb', 'Dec'];
-months.sort();
-console.log(months);
-// Expected output: Array ["Dec", "Feb", "Jan", "March"]
-
-const array1 = [1, 30, 4, 21, 100000];
-array1.sort();
-console.log(array1);
-// Expected output: Array [1, 100000, 21, 30, 4]
-```
+#### Transform flac to alac(m4a) for Apple Music
 
 ```bash
 #!/bin/bash
@@ -43,6 +31,7 @@ convert_file() {
 export -f convert_file
 
 # Get number of CPU cores
+# 14 for M4 pro MBP, use nproc for linux
 num_cores=14
 
 # Find all FLAC files and process them in parallel

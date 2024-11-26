@@ -25,7 +25,7 @@ export default function RootLayout({
         className={`${notoSerifSC.variable} ${ubuntuMono.variable} font-serif antialiased`}
       >
         <Header />
-        <main className="pt-8">
+        <main className="pt-8 md:pl-8">
           {children}
         </main>
       </body>
