@@ -2,6 +2,7 @@ import { Noto_Serif_SC, Ubuntu_Mono } from "next/font/google";
 import "./globals.css";
 import "katex/dist/katex.min.css";
 import Header from "@/app/components/Header";
+import Footer from "@/app/components/Footer";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -55,10 +56,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${notoSerifSC.variable} ${ubuntuMono.variable} font-serif antialiased`}
+        className={`${notoSerifSC.variable} ${ubuntuMono.variable} font-serif antialiased min-h-screen flex flex-col`}
       >
         <Header />
-        <main className="pt-8 md:pl-8">{children}</main>
+        <main className="pt-8 md:pl-8 flex-grow">{children}</main>
+        <Footer />
       </body>
     </html>
   );
