@@ -1,4 +1,42 @@
 import { getAllPostSlugs, getPostBySlug } from '@/lib/load-posts'
+import { Metadata } from 'next'
+
+export async function generateMetadata( props : 
+   { params: Promise<{ slug: string }> }
+): Promise<Metadata> {
+  const params = await props.params
+  const post = await getPostBySlug(params.slug)
+  if (!post) return {}
+
+  // Extract first image URL from the content
+  const imageMatch = post.content.match(/<img[^>]+src="([^">]+)"/i)
+  const firstImage = imageMatch ? imageMatch[1] : null
+
+  return {
+    title: post.title,
+    description: `${post.content.slice(0, 200).replace(/<[^>]*>/g, '')}...`,
+    openGraph: {
+      title: post.title,
+      description: `${post.content.slice(0, 200).replace(/<[^>]*>/g, '')}...`,
+      type: 'article',
+      publishedTime: post.date,
+      images: firstImage ? [
+        {
+          url: firstImage,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        }
+      ] : undefined,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: `${post.content.slice(0, 200).replace(/<[^>]*>/g, '')}...`,
+      images: firstImage ? [firstImage] : undefined,
+    },
+  }
+}
 
 export default async function Page(props : {
   params: Promise<{ slug: string }>
