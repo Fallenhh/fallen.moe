@@ -10,7 +10,7 @@ export async function generateMetadata(props: {
 
   // Extract first image URL from the content
   const imageMatch = post.content.match(/<img[^>]+src="([^">]+)"/i);
-  const firstImage = imageMatch ? imageMatch[1] : null;
+  const firstImage = imageMatch ? imageMatch[1] : 'https://pic.fallen.moe/wallpaper.jpg';
 
   return {
     title: post.title,
@@ -20,22 +20,20 @@ export async function generateMetadata(props: {
       description: `${post.content.slice(0, 200).replace(/<[^>]*>/g, "")}...`,
       type: "article",
       publishedTime: post.date,
-      images: firstImage
-        ? [
-            {
-              url: firstImage,
-              width: 1200,
-              height: 630,
-              alt: post.title,
-            },
-          ]
-        : undefined,
+      images: [
+        {
+          url: firstImage,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: post.title,
       description: `${post.content.slice(0, 200).replace(/<[^>]*>/g, "")}...`,
-      images: firstImage ? [firstImage] : undefined,
+      images: [firstImage],
     },
   };
 }
