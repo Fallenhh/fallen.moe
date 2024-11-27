@@ -123,6 +123,11 @@ pre code {
   @apply pl-12 pr-4 leading-relaxed block;
 }
 
+/* Article image styles */
+article img {
+  @apply rounded-xl;
+}
+
 /* Syntax highlighting colors */
 .hljs-comment,
 .hljs-quote {
