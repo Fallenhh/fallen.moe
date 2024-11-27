@@ -1,37 +1,37 @@
-import { FaGithub, FaXTwitter, FaTelegram, FaEnvelope } from 'react-icons/fa6'
-import Link from 'next/link'
+import { FaGithub, FaXTwitter, FaTelegram, FaEnvelope } from "react-icons/fa6";
+import Link from "next/link";
 
 export default function AboutPage() {
   const socialLinks = [
     {
-      name: 'GitHub',
-      url: 'https://github.com/Fallenhh',
+      name: "GitHub",
+      url: "https://github.com/Fallenhh",
       icon: <FaGithub className="w-6 h-6" />,
     },
     {
-      name: 'X (Twitter)',
-      url: 'https://x.com/Fallenhh2',
+      name: "X (Twitter)",
+      url: "https://x.com/Fallenhh2",
       icon: <FaXTwitter className="w-6 h-6" />,
     },
     {
-      name: 'Telegram',
-      url: 'https://t.me/@Fallenhh',
+      name: "Telegram",
+      url: "https://t.me/@Fallenhh",
       icon: <FaTelegram className="w-6 h-6" />,
     },
     {
-      name: 'Email',
-      url: 'mailto:fallen2hh@gmail.com',
+      name: "Email",
+      url: "mailto:fallen2hh@gmail.com",
       icon: <FaEnvelope className="w-6 h-6" />,
     },
-  ]
+  ];
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-8">About Me</h1>
-      
+
       <div className="prose lg:prose-xl">
         <p className="text-lg mb-6">
-          Hi! I&apos;m Fallenhh, a struggling CS PhD. 
+          Hi! I&apos;m Fallenhh, a struggling CS PhD.
         </p>
 
         <p className="text-lg mb-12">
@@ -57,6 +57,5 @@ export default function AboutPage() {
         </div>
       </div>
     </div>
-  )
+  );
 }
-

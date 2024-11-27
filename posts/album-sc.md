@@ -1,5 +1,5 @@
 ---
-title: Photos of Santa Cruz 
+title: Photos of Santa Cruz
 date: 2024-11-26
 ---
 

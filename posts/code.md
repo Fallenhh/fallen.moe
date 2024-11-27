@@ -1,5 +1,5 @@
 ---
-title: Scripts Collections 
+title: Scripts Collections
 date: 2024-11-25
 ---
 
@@ -23,7 +23,7 @@ echo "Converting to Apple Lossless format..."
 convert_file() {
     input="$1"
     output="${input%.flac}.m4a"
-    
+
     echo "Converting: $input"
     ffmpeg -y -i "$input" -c:a alac -c:v copy -map_metadata 0 "$output" -loglevel warning
 }
