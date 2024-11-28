@@ -10,7 +10,9 @@ export async function generateMetadata(props: {
 
   // Extract first image URL from the content
   const imageMatch = post.content.match(/<img[^>]+src="([^">]+)"/i);
-  const firstImage = imageMatch ? imageMatch[1] : 'https://pic.fallen.moe/wallpaper.jpg';
+  const firstImage = imageMatch
+    ? imageMatch[1]
+    : "https://pic.fallen.moe/wallpaper.jpg";
 
   return {
     title: post.title,
